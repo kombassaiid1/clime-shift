@@ -1,0 +1,68 @@
+<header class="border border-b-2">
+  <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
+    <div
+      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+      <a href="https://flowbite.com" class="flex items-center">
+        <span class="self-center text-xl font-semibold whitespace-nowrap"
+          >Eco Shift</span
+        >
+      </a>
+      <div class="flex items-center lg:order-2">
+        <a
+          routerLink="#"
+          class="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+          >Log in</a
+        >
+        <a
+          href="#"
+          class="text-white bg-primary focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
+          >Get started</a
+        >
+
+        <button
+          mat-button
+          [matMenuTriggerFor]="dropdown"
+          data-collapse-toggle="mobile-menu-2"
+          type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          aria-controls="mobile-menu-2"
+          aria-expanded="false">
+          <fa-icon class="w-6 h-6" [icon]="faBars"></fa-icon>
+          <fa-icon class="hidden w-6 h-6" [icon]="faBars"></fa-icon>
+        </button>
+
+        <mat-menu #dropdown="matMenu">
+          <div *ngFor="let item of menus">
+            <button
+              class="flex gap-3"
+              mat-menu-item
+              routerLink="{{ item.link }}">
+              <fa-icon class="text-primary" [icon]="item.icon"></fa-icon>
+              <span class="text-black hover:text-primary font-medium">
+                {{ item.name }}
+              </span>
+            </button>
+          </div>
+        </mat-menu>
+      </div>
+
+      <div
+        class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+        id="mobile-menu-2">
+        <ul
+          class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          <li *ngFor="let item of menus" class="flex gap-5 text-primary">
+            <fa-icon [icon]="item.icon"></fa-icon>
+            <a
+              routerLink="{{ item.link }}"
+              routerLinkActive="text-primary"
+              class="block py-2 pr-4 pl-3 text-black hover:text-primary rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0"
+              aria-current="page"
+              >{{ item.name }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
